@@ -1,20 +1,47 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<!-- Use Command -> to go to end of line. -> is the left arrow key.-->>
+<!-- <title> </title> in index.html and not app.component.html is to change the tab tittle-->
+<!-- {{Title}} is connected to app.component.ts and you have to use {{}} to connect stuff in app.component.ts to the html file -->
+<!-- You use interpolation to weave calculated strings into the text between HTML element tags and within attribute assignments.-->
 
+<!-- Use app.module.ts to import packages so you can use it -->
+<!-- Need to do 2 steps -->
+<!-- import { FormsModule } from '@angular/forms' -->
+<!-- also needed to add FormsModule to imports under @NgModule-->
+
+<!-- How to install bootstrap for simple css features, npm save --bootstrap@3 
+  1) npm save -- bootstrap@3
+  2) Need to go to angular.json and add to  architect,build,styles  "node_modules/bootstrap/dist/css/bootstrap.min.css", -->
+
+<!-- What is TypeScript?-->
+<!-- It is a superset to Javascript and it offers more features, code gets checked when you write it instead of when you run it-->
+
+<!-- How angular gets started?
+  1) Main.ts runs and bootstrap module runs appmodule
+  2)Appmodule.ts is ran
+  3) Appmodule.ts then tells angular what components it needs to be aware of such as app.component
+  4) So, App.module.ts contains app.component.css, app.component.html, app.component.ts
+  5) MODULES CONTAINS COMPONENTS AND APPCOMPONENT IS THE ROOTCOMPENENT WHERE ALL THE OTHER COMPONENTS IS CONNECTED TO 
+  6) Best thing about compoenets is that each have its own Business Logic so it can be reused-->
+
+<!-- What is Directive? and what does it do?-->
+<!-- [(ngModel)]='name' is a type of directive and it listens to whatever is inputed and store it in something, in this case name-->
+<input type='text' [(ngModel)]='name'>
+<p>{{name}}</p>
+
+
+<!-- How to create a new component?
+    1) You can create a nameofcomponent folder under app 
+    2) in that folder you would want to make a file nameofcomponent.ts
+    3) in nameofcomponent.component.ts you need to have export class 'nameofcomponent'Component {}
+    4) Import the component decorator to let typescript know this is a component, import { Component } from '@angular/core'  @angular/core is a package
+    5) Add the @component ({}) decarator
+    6) Add Selector so it can later be used in a html file  in @Component({ Selector: 'app-nameofcomponent', templateUrl: './contact.component.html'
+    7) Register new component in app.module.ts under @NgModule Declarations, and import component
+    8) Add new component into app.module.html using selector created in step 6  
+
+    OR YOU CAN USE CLI COMMAND TO DO THIS ALL AUTOMATICALLY
+    1) Use ng generate component contactauto
+    2) This will give u the folder, html, css, spec, ts file  and also do all the import stuff for you and generate a selector
+    }) -->
+<app-contact> </app-contact>
+<app-contactauto> </app-contactauto>
